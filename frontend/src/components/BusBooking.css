@@ -1,0 +1,45 @@
+.bus-booking-container {
+    padding: 20px;
+    display: 'flex';
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 1000px;
+    margin: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .bus-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between input fields */
+  }
+  
+  .bus-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    
+  }
+  
+  .bus-input:focus {
+    outline: none;
+    border-color: orangered; /* Change border color on focus */
+  }
+  
+  .search-button {
+    padding: 10px;
+    background-color: orangered;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-button:hover {
+    background-color: #ff5722; /* Darker shade on hover */
+  }
+  

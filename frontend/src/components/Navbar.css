@@ -1,0 +1,83 @@
+/* Container styles for the navbar */
+.navbar-container {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  /* Button styles for BookMYJourney and Login/Signup */
+  .navbar-button {
+    background-color: orangered;
+    border-radius: 5px;
+    height: 40px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 0 15px;
+    border: none;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .navbar-button:hover {
+    background-color: #ff5722;
+    transform: scale(1.05);
+  }
+  
+  /* User icon inside the button */
+  .user-icon {
+    margin-right: 8px;
+    font-size: 18px;
+  }
+  
+  /* Spacing between elements */
+  .navbar-spacer {
+    flex-grow: 1; /* Pushes content to the right */
+  }
+  
+  .navbar-small-spacer {
+    width: 10px; /* Small space between icons and buttons */
+  }
+  
+  /* Styles for the Offers and Customer Care sections */
+  .navbar-section {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+  .navbar-icon {
+    margin-right: 10px;
+    font-size: 22px;
+    color: orangered;
+    transition: transform 0.3s ease;
+  }
+  
+  .navbar-label {
+    font-size: 18px;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-section:hover .navbar-label {
+    color: orangered;
+  }
+  
+  .navbar-section:hover .navbar-icon {
+    transform: rotate(10deg); /* Slight rotate effect on hover */
+  }
+  
+  /* Horizontal line to separate navbar from content */
+  .navbar-divider {
+    border: none;
+    height: 2px;
+    background-color: #e0e0e0;
+    margin: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  

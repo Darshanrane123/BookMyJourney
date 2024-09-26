@@ -1,0 +1,88 @@
+.menubar-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.menu-item {
+  text-align: center;
+  cursor: pointer;
+  padding: 15px;
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent;
+  border-radius: 10px;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-color: #ff0000;
+}
+
+.menu-image {
+  height: 300px;
+  margin-bottom: 10px;
+}
+
+.menu-label {
+  font-size: 35px;
+  color: #333;
+}
+
+/* This section is for the center label */
+.menu-info {
+  text-align: center;
+  flex-grow: 2; /* Allows the center label to take more space */
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.menu-info-label {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ff0000;
+  pointer-events: none; /* Ensures it's not clickable */
+  user-select: none; /* Prevents text selection */
+}
+
+.menubar-container .menu-item:hover .menu-label {
+  color: #ff001e;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #f8f9fa;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .menu-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .menu-image {
+    height: 300px;
+    margin-bottom: 5px;
+  }
+  
+  .menu-label {
+    font-size: 40px;
+    font-weight: bold;
+    color: #333;
+  }
+  
