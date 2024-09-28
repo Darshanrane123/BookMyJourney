@@ -1,0 +1,120 @@
+
+    body::-webkit-scrollbar {
+        display: none; /* Hide scrollbar in Chrome, Safari, etc. */
+      }
+
+.hotel-booking-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Keep column for the main container */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 98%;
+    max-width: 1950px; /* Limit maximum width */
+    margin: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hotel-inputs {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    gap: 10px; /* Space between input fields */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+  }
+  
+  .input-container {
+    flex: 1 1 10%; /* Flex-grow, flex-shrink, and base width of 18% */
+    position: relative; /* Position relative for absolute child elements */
+    width:10%;
+  }
+  
+  .rooms-guests-container {
+    display: flex; /* Use flexbox for room and guest fields */
+    flex: 1; /* Allow it to grow */
+    gap: 10px; /* Space between rooms and guests fields */
+  }
+  
+  .input-icon {
+    margin-top: 10px;
+    position: absolute; /* Position the icon absolutely */
+    left: 10px; /* Adjust left padding */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Center vertically */
+    color: #999; /* Default icon color */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+  }
+  
+  .hotel-input {
+    padding: 10px 10px 10px 40px; /* Add padding for the icon */
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box; /* Include padding in width */
+  }
+  
+  .hotel-input:focus {
+    outline: none;
+    border-color: orangered; /* Change border color on focus */
+  }
+  
+  .hotel-input:focus + .input-icon {
+    color: orangered; /* Change icon color on focus */
+  }
+  
+  .number-input {
+    max-width: 80px; /* Limit width for number inputs */
+  }
+  
+  label {
+    display: block; /* Block display for labels */
+    margin-bottom: 5px; /* Space between label and input */
+  }
+  
+  .search-button {
+    margin-top: 18px;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: orangered;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 20%; /* Set button width */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-button:hover {
+    background-color: #ff5722; /* Darker shade on hover */
+  }
+  
+  .destinations-container {
+    display: flex; /* Use flexbox to arrange cards */
+    justify-content: space-between; /* Space out the cards */
+    flex-wrap: wrap; /* Allow wrapping */
+    margin-top: 20px; /* Space above the destination cards */
+  }
+  
+  .destination-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    height: 400px;
+    border-radius: 5px;
+    width: calc(20% - 10px); /* Adjust width to fit 5 cards in a row */
+    margin: 5px; /* Space between cards */
+    text-align: center; /* Center text */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .destination-image {
+    width: 100%; /* Full width for image */
+    height: 350px; /* Fixed height */
+    border-top-left-radius: 5px; /* Rounded corners for top */
+    border-top-right-radius: 5px; /* Rounded corners for top */
+  }
+  
+  .destination-card h4 {
+    margin: 10px 0; /* Space above and below the name */
+  }
