@@ -1,0 +1,263 @@
+.train-booking-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Keep column for the main container */
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 90%;
+  margin: auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.train-inputs {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  gap: 10px; /* Space between input fields */
+}
+
+.train-input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  flex: 1; /* Allow inputs to take equal space */
+}
+
+.train-select {
+
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      flex: 1; /* Allow inputs to take equal space */
+    
+}
+
+.train-input:focus {
+  outline: none;
+  border-color: orangered; /* Change border color on focus */
+}
+
+.search-button {
+  padding: 10px;
+  background-color: orangered;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 20%;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: -2px;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #ff5722; /* Darker shade on hover */
+}
+
+.swap-icon {
+  cursor: pointer; /* Change cursor to pointer on hover */
+  font-size: 20px; /* Adjust size as needed */
+}
+
+/* Styling for the available trains section */
+.available-trains {
+width: 90%;
+margin: 0 auto;
+background-color: #f5f5f5;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header style */
+.available-trains h3 {
+text-align: center;
+color: #333;
+font-size: 28px;
+font-weight: bold;
+margin-bottom: 20px;
+}
+
+/* Styling for the list of trains */
+.train-list {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+/* Each train item */
+.train-item {
+background-color: #ffffff;
+padding: 15px;
+margin-bottom: 15px;
+border-radius: 8px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.train-item:hover {
+transform: translateY(-5px);
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling the train info */
+.train-info {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+.train-info h4 {
+color: #ff0000;
+font-size: 22px;
+margin-bottom: 5px;
+font-weight: 600;
+}
+
+.train-info p {
+font-size: 16px;
+color: #555;
+}
+
+/* Making From and To information stand out */
+.train-info p:nth-child(3),
+.train-info p:nth-child(4) {
+font-weight: 500;
+color: #333;
+}
+
+/* Adding more spacing between elements */
+.train-item + .train-item {
+margin-top: 20px;
+}
+
+
+
+/*////////////////////////////////////////////////*/
+.available-trains {
+padding: 10px;
+}
+
+.train-list {
+list-style: none;
+padding: 0;
+}
+
+.train-item {
+border: 1px solid #ddd;
+margin-bottom: 10px;
+padding: 15px;
+border-radius: 5px;
+}
+
+.train-info {
+display: flex;
+flex-direction: column;
+}
+
+.train-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.train-header h4 {
+margin: 0;
+}
+
+.train-timings p {
+margin: 5px 0;
+display: flex;
+}
+
+.class-availability {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+}
+
+.class-item {
+border: 1px solid #ddd;
+padding: 10px;
+border-radius: 5px;
+text-align: center;
+min-width: 80px;
+}
+
+.class-item.tatkal {
+background-color: #f0f8ff;
+}
+
+.travel-guarantee {
+margin-top: 10px;
+font-weight: bold;
+color: green;
+}
+
+/**==================================================*/
+.available-trains {
+font-family: Arial, sans-serif;
+}
+
+.train-list {
+list-style-type: none;
+padding: 0;
+}
+
+.train-item {
+border: 1px solid #ddd;
+margin-bottom: 20px;
+padding: 15px;
+border-radius: 5px;
+}
+
+.train-info {
+display: flex;
+flex-direction: column;
+}
+
+.train-header h4 {
+margin: 0;
+font-size: 18px;
+color: #eb0808;
+}
+
+.train-timings {
+display: flex;
+justify-content: space-between;
+margin: 15px 0;
+}
+
+.timing {
+display: flex;
+flex-direction: column;
+}
+
+/* .class-availability {
+display: flex;
+justify-content: space-around;
+}
+
+.class-item {
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+text-align: center;
+width: 30%;
+}
+
+.class-item.tatkal {
+background-color: #f0f0f0;
+} */
+
+.travel-guarantee {
+margin-top: 15px;
+color: green;
+font-weight: bold;
+}
+
+h4 {
+color: red;
+}

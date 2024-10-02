@@ -15,8 +15,8 @@ const Menubar = ({ onSectionChange }) => {
       </div>
 
       <div className="menu-item" onClick={() => onSectionChange('flights')}>
-        <img src="/Flights.jpeg" alt="Flights" className="menu-image" />
-        <label className="menu-label">Flights</label>
+        <img src="/Taxi.jpeg" alt="Cab" className="menu-image" />
+        <label className="menu-label">Cabs</label>
       </div>
 
       <div className="menu-item" onClick={() => onSectionChange('hotels')}>
