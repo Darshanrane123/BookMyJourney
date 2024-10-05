@@ -4,10 +4,10 @@ import Home from './Home/Home';
 import Menubar from './components/Menubar';
 import BusBooking from './components/BusBooking';
 import HotelBooking from './components/HotelBooking';
-import TrainBooking from './components/TrainBooking';
 import FlightsBooking from './components/FlightsBooking';
 import ProjectInfo from './components/ProjectInfo';
 import Footer from './components/Footer';
+import Train from'./components/Train'
 
 function App() {
   // State to track the currently active section
@@ -24,7 +24,7 @@ function App() {
       case 'buses':
         return <BusBooking />;
       case 'trains':
-        return <TrainBooking />;
+        return <Train />;
       case 'flights':
         return <FlightsBooking />;
       case 'hotels':
@@ -45,7 +45,7 @@ function App() {
       )}
 
       {/* Render the appropriate section content */}
-      <div className="content">
+      <div className="scrollable-content">
         {renderContent()}
       </div>
 

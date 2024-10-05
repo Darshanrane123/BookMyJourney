@@ -1,0 +1,308 @@
+/* Container Styling */
+.train-booking-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 90%;
+    margin: auto;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+.train-inputs {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.train-input, .train-select {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    flex: 1;
+    transition: border-color 0.3s ease;
+}
+
+.train-input:focus, .train-select:focus {
+    outline: none;
+    border-color: #fa130b;
+}
+
+.search-button {
+    padding: 12px;
+    background-color: #f31008;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    width: 22%;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #c9302c;
+}
+
+.swap-icon {
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Available Trains Section */
+.available-trains {
+    width: 90%;
+    margin: 20px auto;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.available-trains h3 {
+    text-align: center;
+    color: #333;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.train-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.train-item {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.train-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.train-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.train-info h4 {
+    color: #f9140c;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.train-info p {
+    font-size: 16px;
+    color: #555;
+}
+
+.train-info p:nth-child(3),
+.train-info p:nth-child(4) {
+    font-weight: 500;
+    color: #333;
+}
+
+/* User Input Form */
+.user-input-form {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-input-form h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #ee1e1e;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #d9534f;
+    outline: none;
+}
+
+/* Book Button */
+.bookBtn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #ff0303;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.bookBtn:hover {
+    background-color: #ff0000;
+    transform: scale(1.03); /* Slightly enlarge button on hover */
+}
+
+.bookBtn:active {
+    background-color: #c00000; /* Darker shade on click */
+    transform: scale(0.97); /* Slightly shrink when clicked */
+}
+
+/* Class types wrapper for better alignment */
+.class-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Increased gap for better spacing */
+    justify-content: flex-start;
+    margin-top: 20px;
+    align-items: center; /* Ensure buttons are vertically centered */
+}
+
+/* Class Button styling for vertical stacking */
+.class-button {
+    background-color: #ff0800; /* Primary color */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center;
+    align-items: flex-start; /* Align content to the left */
+    min-width: 200px;
+    min-height: 70px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    line-height: 1.6; /* Increase line spacing for better readability */
+}
+
+/* Hover and active effects */
+.class-button:hover {
+    background-color: #00b333;
+    transform: scale(1.05);
+}
+
+.class-button:active {
+    background-color: #850021;
+    transform: scale(0.95);
+}
+
+
+.class-button:active {
+    background-color: #850021; /* Even darker shade for active state */
+    transform: scale(0.95); /* Shrink slightly when clicked */
+}
+
+/* Disabled state */
+.class-button:disabled {
+    background-color: #c0c0c0; /* Grey out button if disabled */
+    cursor: not-allowed;
+}
+
+/* Popup container for login/signup */
+.popup-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 500px;
+    background-color: white;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    
+  
+  }
+  .popup-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    background-color: white;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    transform: translateX(100%); /* Initially hide the popup off-screen */
+}
+
+.popup-container.active {
+    transform: translateX(0); /* Bring it into view */
+}
+
+  
+  h2 {
+    color: orangered;
+    margin-left: 100px;
+  }
+  
+  /* Close button styling */
+  .popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+  
+  .popup-close:hover {
+    color: orangered;
+  }
+  
+  /* Popup box content styling */
+  .popup-box {
+    margin-top: 40px; /* Added margin to prevent overlap with close button */
+  
+  }
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .class-button {
+        width: 100%; /* Buttons take full width on smaller screens */
+        margin-bottom: 10px;
+    }
+
+    .class-types {
+        flex-direction: column; /* Stack buttons vertically on smaller screens */
+        gap: 10px;
+    }
+}

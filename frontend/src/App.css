@@ -40,3 +40,25 @@
 .read-the-docs {
   color: #888;
 } */
+
+.scrollable-content {
+  max-height: 80vh; /* Adjust height as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  scrollbar-width: none; /* For Firefox */
+}
+
+.scrollable-content::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+footer {
+  position: absolute;
+  bottom: 0; /* Position at the bottom */
+  left: 0;
+  width: 100%; /* Full width */
+  height: 60px; /* Adjust as needed */
+  background-color: #f8f8f8; /* Adjust as needed */
+  text-align: center; /* Center footer content */
+  padding: 20px 0; /* Add some padding */
+}

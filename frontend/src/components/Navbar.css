@@ -95,6 +95,25 @@
   
 
 }
+/* Add this to dim the background when the popup is open */
+body {
+  overflow: hidden; /* Prevent scrolling when popup is open */
+}
+
+/* Popup container for login/signup */
+.popup-container {
+  position: fixed;
+  top: 50%; /* Center the popup vertically */
+  left: 50%; /* Center the popup horizontally */
+  transform: translate(-50%, -50%); /* Adjust for half width and height */
+  width: 300px;
+  background-color: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
 
 h2 {
   color: orangered;

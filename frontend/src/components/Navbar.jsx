@@ -204,18 +204,18 @@ const Navbar = ({ onBookMyJourneyClick }) => {
 
   const switchToSignup = () => {
     setIsSignup(true);
+    setUserData({ name: '', email: '', password: '' }); // Reset user data on switch
   };
 
   const switchToLogin = () => {
     setIsSignup(false);
+    setUserData({ name: '', email: '', password: '' }); // Reset user data on switch
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
   };
-
-  
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -224,48 +224,39 @@ const Navbar = ({ onBookMyJourneyClick }) => {
       alert('Signup successful!');
       toggleLoginPopup();
     } catch (error) {
-      alert('Error signing up: ' + error.response.data);
+      alert('Error signing up: ' + (error.response?.data || error.message));
     }
   };
 
   const handleLogin = async (e) => {
     e.preventDefault(); // Prevent default form submission
-
     try {
-        const response = await axios.post('http://localhost:5000/login', {
-            email: userData.email,
-            password: userData.password,
-        });
+      const response = await axios.post('http://localhost:5000/login', {
+        email: userData.email,
+        password: userData.password,
+      });
 
-        // Destructure the token and name from the response data
-        const { token, name } = response.data;
+      // Destructure the token and name from the response data
+      const { token, name } = response.data;
 
-        // Store the token and user's name in local storage
-        localStorage.setItem('token', token);
-        localStorage.setItem('userName', name);
+      // Store the token and user's name in local storage
+      localStorage.setItem('token', token);
+      localStorage.setItem('userName', name);
 
-        // Update login state
-        setIsLoggedIn(true);
+      // Update login state
+      setIsLoggedIn(true);
 
-        // Optionally toggle a popup or redirect
-        toggleLoginPopup(); // Assuming this handles UI changes
-        // Or you can redirect to a dashboard or home page
-        // window.location.href = '/dashboard'; // Uncomment this if you want to redirect
+      // Close login popup
+      toggleLoginPopup();
     } catch (error) {
-        // Display error message if login fails
-        alert('Error logging in: ' + error.response.data);
+      // Display error message if login fails
+      alert('Error logging in: ' + (error.response?.data || error.message));
     }
-};
-
-
-  const userName = localStorage.getItem('userName');
-  
-  
+  };
 
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userName');
-
     setIsLoggedIn(false);
   };
 
@@ -292,7 +283,6 @@ const Navbar = ({ onBookMyJourneyClick }) => {
 
         {isLoggedIn ? (
           <button className="navbar-button" onClick={handleLogout}>
-            
             Logout
           </button>
         ) : (
@@ -300,8 +290,6 @@ const Navbar = ({ onBookMyJourneyClick }) => {
             <FontAwesomeIcon icon={faUser} className="user-icon" />
             Login / Signup
           </button>
-
-            
         )}
       </div>
 
@@ -329,7 +317,7 @@ const Navbar = ({ onBookMyJourneyClick }) => {
                     <label>Password:</label>
                     <input type="password" name="password" value={userData.password} onChange={handleInputChange} className="input-login" placeholder="Enter your password" required />
                   </div>
-                  <br></br>
+                  <br />
                   <button type="submit" className="navbar-button">Sign Up</button>
                 </form>
                 <p>
@@ -351,7 +339,7 @@ const Navbar = ({ onBookMyJourneyClick }) => {
                     <label>Password:</label>
                     <input type="password" name="password" value={userData.password} onChange={handleInputChange} className="input-login" placeholder="Enter your password" required />
                   </div>
-                  <br></br>
+                  <br />
                   <button type="submit" className="navbar-button">Login</button>
                 </form>
                 <p>
