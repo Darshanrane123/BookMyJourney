@@ -222,16 +222,20 @@ app.post('/api/checkUser', async (req, res) => {
                 bookingNumber: Math.floor(100000 + Math.random() * 900000), // Generating a random booking number
                 trainNumber: trainNumber,
                 trainName: trainName,
+                date: bookingDetails.date, // Make sure to include the date
                 from: from,
                 to: to,
                 classType: classType,
-                passengers: passengers.map((passenger, index) => ({
-                    coach: getCoach(classType),  // Get the coach based on classType
-                    seatNumber: index + 1, // Assign seat number based on index (1, 2, 3, ...)
-                    name: passenger.name,
-                    age: passenger.age,
-                    gender: passenger.gender
-                }))
+                passengers: passengers.map((passenger, index) => {
+                    const { coach, seatNumber } = getCoachAndSeat(classType, index);
+                    return {
+                        coach: coach,
+                        seatNumber: seatNumber,
+                        name: passenger.name,
+                        age: passenger.age,
+                        gender: passenger.gender
+                    };
+                })
             });
 
             // Save the booking in the database
@@ -251,18 +255,44 @@ app.post('/api/checkUser', async (req, res) => {
 
   
 // Helper function to get coach based on classType
-const getCoach = (classType) => {
-    const coachMapping = {
-        '1A': 'B1',  // First AC
-        '2A': 'B3',  // Second AC
-        '3A': 'B5',  // Third AC
-        'SL': 'S1',  // Sleeper Class
-        '2S': 'D1',  // Second Sitting
-        'EV': 'EV1', // Executive Class
-        'CC': 'C1',  // Chair Car
+const getCoachAndSeat = (classType, index) => {
+    const classMapping = {
+        '1A': ['B1', 'B2'],   // First AC coaches
+        '2A': ['B3', 'B4'],   // Second AC coaches
+        '3A': ['B5', 'B6'],   // Third AC coaches
+        'SL': ['S1', 'S2', 'S3', 'S4', 'S5'],  // Sleeper Class coaches
+        '2S': ['D1', 'D2'],   // Second Sitting
+        'EV': ['EV1'],        // Executive Class
+        'CC': ['C1', 'C2'],   // Chair Car
     };
-    return coachMapping[classType] || 'Unknown'; // Return 'Unknown' if classType doesn't match
+
+    const coaches = classMapping[classType] || ['Unknown'];
+    const coachIndex = Math.floor(index / 72); // Assume 72 seats per coach
+    const seatNumber = (index % 72) + 1;
+
+    return {
+        coach: coaches[coachIndex] || 'Unknown',
+        seatNumber
+    };
 };
+
+
+
+
+app.get('/api/bookings', async (req, res) => {
+    const { email } = req.query; // Get the email from query parameters
+    try {
+      const bookings = await Booking.find({ email: email }); // Fetch bookings matching the email
+      if (bookings.length > 0) {
+        res.status(200).json(bookings); // Send back the found bookings
+      } else {
+        res.status(404).json({ message: 'No bookings found for this email.' }); // Handle no bookings found
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'An error occurred while fetching bookings.' }); // Handle server error
+    }
+  });
 
 
 
@@ -270,3 +300,5 @@ const getCoach = (classType) => {
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+
+

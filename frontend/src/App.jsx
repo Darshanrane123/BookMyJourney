@@ -7,7 +7,9 @@ import HotelBooking from './components/HotelBooking';
 import FlightsBooking from './components/FlightsBooking';
 import ProjectInfo from './components/ProjectInfo';
 import Footer from './components/Footer';
-import Train from'./components/Train'
+import Train from'./components/Train';
+import Hotels from './components/Hotels';
+import Tourist from './Tourism/Tourist';
 
 function App() {
   // State to track the currently active section
@@ -25,13 +27,15 @@ function App() {
         return <BusBooking />;
       case 'trains':
         return <Train />;
-      case 'flights':
-        return <FlightsBooking />;
+      case 'tourist':
+        return <Tourist />;
       case 'hotels':
-        return <HotelBooking />;
+        return <Hotels />;
       case 'projectInfo':
       default:
-        return <ProjectInfo />;
+        return <><ProjectInfo /> 
+                <Footer/>
+        </>;
     }
   };
 
@@ -49,7 +53,7 @@ function App() {
         {renderContent()}
       </div>
 
-      <Footer />
+      
     </>
   );
 }

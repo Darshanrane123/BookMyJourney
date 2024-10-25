@@ -154,3 +154,11 @@ h2 {
 .link{
   color: orangered;
 }
+
+.booking-details {
+  max-height: 400px; /* Set your desired height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border: 1px solid #ccc; /* Optional: add a border */
+  padding: 10px; /* Optional: add padding */
+  margin-top: 10px; /* Optional: space above the section */
+}

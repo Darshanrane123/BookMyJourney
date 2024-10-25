@@ -4,6 +4,7 @@ import { faArrowRightArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import './Train.css';
 import axios from 'axios'; // Make sure to install axios using npm or yarn
 // import Booking from '../../../Backend/models/Booking';
+import RazorpayButton from './RasorpayButton';
 
 
 const stationList = [
@@ -35,6 +36,45 @@ const Train = () => {
         { name: '', age: '', gender: 'Male' } // Initial state for one passenger
     ]);
 
+
+    const loadRazorpay = async (price,e,selectedClass) => {
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      script.onload = () => initiatePayment(price,e,selectedClass);
+      document.body.appendChild(script);
+    };
+  
+    const initiatePayment = async (price,e,selectedClass) => {
+      const paymentData = await axios.post('http://localhost:5001/api/payment/orders', {
+        amount: price, // Amount in rupees
+        currency: 'INR',
+      });
+  
+      const options = {
+        key: 'rzp_test_xKSUvKQo7L8FWF', // Replace with your Razorpay key
+        amount: paymentData.data.amount,
+        currency: paymentData.data.currency,
+        order_id: paymentData.data.id,
+        name: 'Test Transaction',
+        description: 'Test Payment',
+        handler: (response) => {
+          alert(`Payment Successful! Payment ID: ${response.razorpay_payment_id}`);
+          handleBookClick(e, selectedClass); // Call handleBookClick after successful payment
+
+        },
+        prefill: {
+          name: 'John Doe',
+          email: 'john.doe@example.com',
+          contact: '91 8624099361',
+        },
+        theme: {
+          color: '#e32d2d',
+        },
+      };
+  
+      const rzp = new window.Razorpay(options);
+      rzp.open();
+    };
 
 
         // // Handler for passenger count change
@@ -72,6 +112,7 @@ const Train = () => {
         //     }
         //     return fields;
         // };
+        
 
 
         // Function to update the passenger data in state
@@ -222,6 +263,8 @@ const Train = () => {
       
     const handleBookClick = async (e, selectedClass) => {
       e.preventDefault();
+
+      
   
       console.log(selectedClass.trainCode);
       console.log(selectedClass.trainName);
@@ -229,19 +272,22 @@ const Train = () => {
       console.log(to);
       console.log(selectedClass.classType);
       console.log(passengers);
+      console.log(`date is ${date}`)
       
       try {
           const bookingDetails = {
               trainNumber: selectedClass.trainCode, // Correctly refer to the train code
               trainName: selectedClass.trainName,   // Correctly refer to the train name
+              date,
               from: from,                           // Change from1 to from
               to: to,                               // Change to1 to to
               classType: selectedClass.classType,
               passengers,
+
           };
   
           // Send a POST request to your backend
-          const response = await axios.post('http://localhost:5005/api/checkUser', {
+          const response = await axios.post('http://localhost:5000/api/checkUser', {
               email,
               password,
               bookingDetails,
@@ -276,7 +322,7 @@ const Train = () => {
         console.log('MongoDate:', mongoFormattedDate); // Output: "2024-10-04"
     
         try {
-            const response = await fetch('http://localhost:5005/api/search', {
+            const response = await fetch('http://localhost:5000/api/search', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -395,7 +441,7 @@ const Train = () => {
                 />
 
                 {/* Search Button */}
-                <button 
+                <button style={{marginTop:'-2px'}}
                     onClick={handleSearch} 
                     className="search-button"
                     disabled={!isTomorrowOrLater(date)} 
@@ -544,8 +590,10 @@ const Train = () => {
       className="class-button"
       style={{ textAlign: 'center', justifyContent: 'center' }}
       disabled={numPassengers <= 0 || !email || !password}  // Disable button if inputs are invalid
-      onClick={(e)=>handleBookClick(e,selectedClass)}  // Corrected this to pass reference, not execution
-    >
+      onClick={async (e) => {
+         loadRazorpay(selectedClass.price1 * numPassengers, e ,selectedClass); 
+        
+    }}    >
       Book
     </button>
   </div>

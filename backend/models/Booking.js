@@ -14,6 +14,7 @@ const BookingSchema = new mongoose.Schema({
   bookingNumber: { type: Number, required: true, unique: true },
   trainNumber: { type: String, required: false },
   trainName: { type: String, required: false },
+  date:{type:Date, required:true},
   from: { type: String, required: true },
   to: { type: String, required: true },
   classType: { type: String, required: true }, // New field for class type
